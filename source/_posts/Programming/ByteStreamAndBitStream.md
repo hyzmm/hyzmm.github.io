@@ -6,6 +6,7 @@ tag:
 toc: true
 categories:
   - 编程
+cover: https://randomwordgenerator.com/img/picture-generator/52e7dd424e57ad14f1dc8460962e33791c3ad6e04e5074417c2f73d49148c4_640.jpg
 ---
 说起数据交换格式，JSON 是当今最常见的格式，但如果我们追求更高的编解码效率和更快的传输速度，例如低延时游戏场景，又或者是大数据量的 IM 消息，通常会选择使用二进制流。
 

@@ -5,6 +5,7 @@ tag:
   - Flutter
 categories:
   - Dart/Flutter
+cover: https://flutter.cn/assets/images/docs/catalog-widget-placeholder.png
 ---
 
 > `CustomSingleChildLayout` 可以使其唯一的子节点的布局遵循一个委托。
@@ -13,7 +14,7 @@ categories:
 
 在位置超出布局约束后，子节点依然会被渲染，但是它的手势交互还会停留再原地。考虑这样的场景：
 
-
+{% dartpad 9239524e218ede1100f436e8de59e957 500 %}
 
 整体上，视图是列，白色区域固定高度，黄色区域自适应高度，红色圆能够被拖动到布局约束外。红色圆的代码如下：
 

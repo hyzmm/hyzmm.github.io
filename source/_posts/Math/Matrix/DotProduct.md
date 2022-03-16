@@ -6,9 +6,9 @@ tag:
     - 向量
 toc: true
 mathjax: true
-cover: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Inner-product-angle.svg/2560px-Inner-product-angle.svg.png
 categories:
   - 数学
+cover: /images/math-dot-product-cover.png
 ---
 
 ## 点积公式一

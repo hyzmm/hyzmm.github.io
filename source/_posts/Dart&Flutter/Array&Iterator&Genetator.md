@@ -6,6 +6,7 @@ tag:
   - 编程
 categories:
   - Dart/Flutter
+cover: https://hdpublic.youlingxi.cn/6230c6117fd6500a8881d712.
 ---
 
 假设有个函数需要返回多项数据，返回值可以选择为数组、[Iterator](https://dart.dev/codelabs/iterables) 或者 [Generator](https://dart.dev/guides/language/language-tour#generators) 中的任意一个，从结果上看，它们都是可行的。本文探讨它们之间的区别，以及如何选择。
