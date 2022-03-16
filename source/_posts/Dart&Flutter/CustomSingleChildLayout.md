@@ -3,6 +3,8 @@ title:  CustomSingleChildLayout
 date:   2021-11-10 19:00:10
 tag: 
   - Flutter
+categories:
+  - Dart/Flutter
 ---
 
 > `CustomSingleChildLayout` 可以使其唯一的子节点的布局遵循一个委托。

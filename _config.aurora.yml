@@ -12,12 +12,12 @@ site:
   subtitle: 皓月之明的博客
   author: 皓月之明
   nick: WengXiang
-  description:
+  description: 进无止境
   link: '/'
   language: zh-CN
   multi_language: false
-  logo: https://img-blog.csdnimg.cn/20210313122054101.png
-  avatar: https://img-blog.csdnimg.cn/20210313122054101.png
+  logo: /images/avatar.jpg
+  avatar: /images/avatar.jpg
   beian:
     number: ''
     link: ''
@@ -31,7 +31,7 @@ site:
 #! ---------------------------------------------------------------
 authors:
   ##! example
-  # TriDiamond:
+  # WengXiang:
   #   name: TriDiamond
   #   avatar: https://up.enterdesk.com/edpic_source/44/ff/3d/44ff3d6bd2819d524facfcc33205d4cd.jpg
   #   link: https://github.com/TriDiamond
@@ -54,8 +54,8 @@ menu:
 #! ---------------------------------------------------------------
 theme:
   dark_mode: true
-  profile_shape: diamond # support `circle`, `diamond`, `rounded`
-  feature: true
+  profile_shape: rounded # support `circle`, `diamond`, `rounded`
+  feature: false
   gradient:
     color_1: '#24c6dc'
     color_2: '#5433ff'
@@ -66,12 +66,13 @@ theme:
 #! @docs https://aurora.tridiamond.tech/guide/social.html
 #! ---------------------------------------------------------------
 socials:
-  customs:
+  github: 'https://github.com/hyzmm'
+  # customs:
   ##! Example:
   ##! --- Using SVG
   # bilibili:
-  #   icon: http://localhost:4000/svg/bilibili.svg
-  #   link: https://live.bilibili.com/22619211
+    # icon: http://localhost:4000/svg/bilibili.svg
+    # link: https://live.bilibili.com/22619211
 
   ##! --- Using IconFont
   # baidu:
@@ -152,8 +153,8 @@ copy_protection:
 #! @docs https://aurora.tridiamond.tech/guide/site-meta.html#custom-meta
 #! ---------------------------------------------------------------
 aurora_bot:
-  enable: false
-  locale: en
+  enable: true
+  locale: cn
   bot_type: dia
   tips:
 

@@ -2,10 +2,13 @@
 title:  "点积"
 date:   2021-12-27 19:26:14 +0800
 tag: 
-    - Matrix
+    - 矩阵
+    - 向量
 toc: true
 mathjax: true
 cover: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Inner-product-angle.svg/2560px-Inner-product-angle.svg.png
+categories:
+  - 数学
 ---
 
 ## 点积公式一
@@ -62,7 +65,7 @@ $$
 
 下面来一步步求证这个公式。这是两个单位向量进行点积的图示：
 
-![dot-product](/assets/note_res/math-dot-product/figure_01.png){: w="400"}
+![dot-product](/images/math-dot-product-figure_01.png?20x)
 
 由于 a 和 b 都是单位向量，根据上面点积公式一种描述的投影计算方式，可以得到：
 
