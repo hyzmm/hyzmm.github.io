@@ -9,13 +9,13 @@
 #！ @docs https://aurora.tridiamond.tech/guide/configuration.html
 #! ---------------------------------------------------------------
 site:
-  subtitle: Aurora's Blog
-  author: Aurora
-  nick: Auroral UI
+  subtitle: hyzm's Blog
+  author: WengXiang
+  nick: 皓月之明
   description:
   link: '/'
-  language: en
-  multi_language: true
+  language: zh-CN
+  multi_language: false
   logo: https://img-blog.csdnimg.cn/20210313122054101.png
   avatar: https://img-blog.csdnimg.cn/20210313122054101.png
   beian:
