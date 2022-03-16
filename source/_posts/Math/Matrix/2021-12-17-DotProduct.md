@@ -1,9 +1,11 @@
 ---
 title:  "点积"
 date:   2021-12-27 19:26:14 +0800
-tag: [Matrix]
+tag: 
+    - Matrix
 toc: true
-math: true
+mathjax: true
+cover: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Inner-product-angle.svg/2560px-Inner-product-angle.svg.png
 ---
 
 ## 点积公式一
@@ -72,8 +74,8 @@ $$
 
 $$
 \begin{aligned}
-a \cdot b &= (|a|\hat{a}) \cdot (|b|\hat{b}) \\ 
-&= |a||b|(\hat{a} \cdot \hat{b}) \\
+a \cdot b &= (|a|\hat{a}) \cdot (|b|\hat{b}) \newline
+&= |a||b|(\hat{a} \cdot \hat{b}) \newline
 &= |a||b| cos \theta
 \end{aligned}
 $$

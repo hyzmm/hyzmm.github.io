@@ -9,9 +9,9 @@
 #！ @docs https://aurora.tridiamond.tech/guide/configuration.html
 #! ---------------------------------------------------------------
 site:
-  subtitle: hyzm's Blog
-  author: WengXiang
-  nick: 皓月之明
+  subtitle: 皓月之明的博客
+  author: 皓月之明
+  nick: WengXiang
   description:
   link: '/'
   language: zh-CN
@@ -92,7 +92,7 @@ site_meta:
   favicon:
   description: ''
   keywords: ''
-  author: ''
+  author: '皓月之明'
 
 #! ---------------------------------------------------------------
 #! Plugins
@@ -123,7 +123,7 @@ valine:
   avatar: ''
   placeholder: Leave your thoughts behind~
   visitor: true
-  lang: en
+  lang: zh-CN
   avatarForce: false
   meta: ['nick', 'mail']
   requiredFields: []

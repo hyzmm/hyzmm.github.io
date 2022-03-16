@@ -3,7 +3,7 @@ title:  "坐标空间转换"
 date:   2021-12-27 19:26:14 +0800
 tag: [Matrix]
 toc: true
-math: true
+mathjax: true
 ---
 
 渲染引擎在进行最终的画面绘制时，都需要确定一个子节点应该在屏幕上的什么位置。或者开发者有时还需要知道父节点的一个节点在子空间的什么位置。这些场景需要用到坐标空间的转换，在渲染引擎中，这些空间转换是通过矩阵完成的。例如常见的 `toLocal` 和 `toGlobal` 接口所做事情。
@@ -15,22 +15,22 @@ math: true
 $$
 M_{c \rightarrow p} = 
 \begin{bmatrix}
-1 & 0 & 0 & t_x \\
-0 & 1 & 0 & t_y \\
-0 & 0 & 1 & 0 \\
+1 & 0 & 0 & t_x \newline
+0 & 1 & 0 & t_y \newline
+0 & 0 & 1 & 0 \newline
 0 & 0 & 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
-S_x & 0 & 0 & 0 \\
-0 & S_y & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+S_x & 0 & 0 & 0 \newline
+0 & S_y & 0 & 0 \newline
+0 & 0 & 1 & 0 \newline
+0 & 0 & 0 & 1 \newline
 \end{bmatrix}
 \begin{bmatrix}
-cos \theta & -sin \theta & 0 & 0 \\
-sin \theta & cos \theta & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+cos \theta & -sin \theta & 0 & 0 \newline
+sin \theta & cos \theta & 0 & 0 \newline
+0 & 0 & 1 & 0 \newline
+0 & 0 & 0 & 1 \newline
 \end{bmatrix}
 $$
 
@@ -39,28 +39,28 @@ $$
 $$
 M_{c \rightarrow p} P_c = 
 \begin{bmatrix}
-1 & 0 & 0 & 100 \\
-0 & 1 & 0 & 100 \\
-0 & 0 & 1 & 0 \\
+1 & 0 & 0 & 100 \newline
+0 & 1 & 0 & 100 \newline
+0 & 0 & 1 & 0 \newline
 0 & 0 & 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
-2 & 0 & 0 & 0 \\
-0 & 2 & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+2 & 0 & 0 & 0 \newline
+0 & 2 & 0 & 0 \newline
+0 & 0 & 1 & 0 \newline
+0 & 0 & 0 & 1 \newline
 \end{bmatrix}
 \begin{bmatrix}
-cos 30° & -sin 30° & 0 & 0 \\
-sin 30° & cos 30° & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+cos 30° & -sin 30° & 0 & 0 \newline
+sin 30° & cos 30° & 0 & 0 \newline
+0 & 0 & 1 & 0 \newline
+0 & 0 & 0 & 1 \newline
 \end{bmatrix}
 \begin{bmatrix}
-10 \\ 10 \\ 0 \\ 1
+10 \newline 10 \newline 0 \newline 1
 \end{bmatrix} = 
 \begin{bmatrix}
-107.32 \\ 127.32 \\ 0 \\ 1
+107.32 \newline 127.32 \newline 0 \newline 1
 \end{bmatrix}
 $$
 
@@ -85,32 +85,32 @@ point_child = numpy.linalg.inv(matrix_c2p) @ point_parent
 
 $$
 \begin{aligned}
-P_c &= M_r^{-1}M_s^{-1}M_t^{-1}P_p \\
+P_c &= M_r^{-1}M_s^{-1}M_t^{-1}P_p \newline
 &= 
 \begin{bmatrix}
-cos (-30°) & -sin (-30°) & 0 & 0 \\
-sin (-30°) & cos (-30°) & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+cos (-30°) & -sin (-30°) & 0 & 0 \newline
+sin (-30°) & cos (-30°) & 0 & 0 \newline
+0 & 0 & 1 & 0 \newline
+0 & 0 & 0 & 1 \newline
 \end{bmatrix}
 \begin{bmatrix}
-\frac{1}{2} & 0 & 0 & 0 \\
-0 & \frac{1}{2} & 0 & 0 \\
-0 & 0 & \frac{1}{2} & 0 \\
-0 & 0 & 0 & 1 \\
+\frac{1}{2} & 0 & 0 & 0 \newline
+0 & \frac{1}{2} & 0 & 0 \newline
+0 & 0 & \frac{1}{2} & 0 \newline
+0 & 0 & 0 & 1 \newline
 \end{bmatrix}
 \begin{bmatrix}
-1 & 0 & 0 & -100 \\
-0 & 1 & 0 & -100 \\
-0 & 0 & 1 & 0 \\
+1 & 0 & 0 & -100 \newline
+0 & 1 & 0 & -100 \newline
+0 & 0 & 1 & 0 \newline
 0 & 0 & 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
-107.32 \\ 127.32 \\ 0 \\ 1
+107.32 \newline 127.32 \newline 0 \newline 1
 \end{bmatrix} 
-\\ &= 
+\newline &= 
 \begin{bmatrix}
-10 \\ 10 \\ 0 \\ 1
+10 \newline 10 \\ 0 \\ 1
 \end{bmatrix}
 \end{aligned}
 $$
