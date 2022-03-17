@@ -65,7 +65,7 @@ $$
 
 下面来一步步求证这个公式。这是两个单位向量进行点积的图示：
 
-![dot-product](/images/math-dot-product-figure_01.png?20x)
+![dot-product](/images/math-dot-product-figure_01.png?w=350&align=center)
 
 由于 a 和 b 都是单位向量，根据上面点积公式一种描述的投影计算方式，可以得到：
 

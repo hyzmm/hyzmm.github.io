@@ -163,5 +163,5 @@ aurora_bot:
 #! @docs https://aurora.tridiamond.tech/guide/site-meta.html#custom-meta
 #! ---------------------------------------------------------------
 injects:
-  scripts:
+  scripts: 
   css:

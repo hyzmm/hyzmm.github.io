@@ -1,4 +1,4 @@
-// {% dartpad userId|anonymous|anon slugHash theme [defaultTab [height [width]]] %}
+// {% dartpad id height %}
 function dartpadTagRender(args) {
   console.log(args);
 
