@@ -14,8 +14,8 @@ site:
   nick: WengXiang
   description: 进无止境
   link: '/'
-  language: zh-CN
-  multi_language: false
+  language: cn
+  multi_language: true
   logo: /images/avatar.jpg
   avatar: /images/avatar.jpg
   beian:
@@ -104,13 +104,13 @@ site_meta:
 gitalk:
   enable: true
   autoExpand: true
-  clientID: ''
-  clientSecret: ''
-  repo: 'dev-blog-comments'
-  owner: 'TriDiamond'
-  admin: ['TriDiamond']
+  clientID: 'd712eb37ad68c5cd7f3a'
+  clientSecret: '67e999efc9d46d855fa4a8d7a042e36e5f64d007'
+  repo: 'hyzmm.github.io'
+  owner: 'hyzmm'
+  admin: ['hyzmm']
   id: uid
-  language: en
+  language: zh-CN
   distractionFreeMode: true
   recentComment: false
   proxy: ''
