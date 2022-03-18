@@ -25,7 +25,9 @@ hexo.extend.injector.register(
             if (paramMap.h) {
                 img.setAttribute("height", paramMap.h);
             }
-            console.log(paramMap)
+            if (paramMap.bg) {
+                img.style.backgroundColor = paramMap.bg;
+            }
             if (paramMap.align == 'center') {
                 img.style.margin = 'auto';
             }
