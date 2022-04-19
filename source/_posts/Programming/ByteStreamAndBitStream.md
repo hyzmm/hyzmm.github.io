@@ -7,7 +7,7 @@ tag:
 toc: true
 categories:
   - 编程
-cover: https://randomwordgenerator.com/img/picture-generator/52e7dd424e57ad14f1dc8460962e33791c3ad6e04e5074417c2f73d49148c4_640.jpg
+cover: /images/cover/byte_steram_and_bit_stream.jpg
 ---
 # 介绍
 
