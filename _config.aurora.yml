@@ -104,8 +104,8 @@ site_meta:
 gitalk:
   enable: true
   autoExpand: true
-  clientID: 'd712eb37ad68c5cd7f3a'
-  clientSecret: '67e999efc9d46d855fa4a8d7a042e36e5f64d007'
+  clientID: '44a19bf58de181f98b21'
+  clientSecret: '45575471fd9eef9a960229ed8015158e5df05adc'
   repo: 'hyzmm.github.io'
   owner: 'hyzmm'
   admin: ['hyzmm']
