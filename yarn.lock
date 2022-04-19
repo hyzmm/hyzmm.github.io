@@ -408,6 +408,7 @@
   dependencies:
     "anymatch" "~3.1.2"
     "braces" "~3.0.2"
+    "fsevents" "~2.3.2"
     "glob-parent" "~5.1.2"
     "is-binary-path" "~2.1.0"
     "is-glob" "~4.0.1"
@@ -786,6 +787,7 @@
     "estraverse" "^5.2.0"
     "esutils" "^2.0.2"
     "optionator" "^0.8.1"
+    "source-map" "~0.6.1"
   optionalDependencies:
     "source-map" "~0.6.1"
 
@@ -972,6 +974,11 @@
   "version" "0.8.0"
   dependencies:
     "mathjax-full" "3.2.0"
+
+"hexo-filter-pathfix@^0.1.2":
+  "integrity" "sha1-Djl5LzJJkgz59v197eQzo2fWOXU="
+  "resolved" "https://registry.npmjs.org/hexo-filter-pathfix/-/hexo-filter-pathfix-0.1.2.tgz"
+  "version" "0.1.2"
 
 "hexo-front-matter@^3.0.0":
   "integrity" "sha512-hSQTPUmB/BCe1BFYmXRkPyLk8rqbBqHCQq+rjwwOJuEfOADrFaVK2VPZb90tJzPyXE1xSxpgCxE/AZq0CyTVwg=="

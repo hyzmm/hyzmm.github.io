@@ -37,7 +37,7 @@ struct OutputByteStream {
 
 假设我们要按序写入 8 位布尔值 `true`，32 位整型值 `6E8` ，8 位整型值 `127`。这个时候缓冲区的内存布局如图所示：
 
-![Byte-Swap](./images/byte_stream_and_bit_stream-byte_stream.svg)
+![Byte-Swap](./ByteStreamAndBitStream/byte_stream.svg)
 
 初始头部指针位置为 0。
 
@@ -215,7 +215,7 @@ fn write_read_all() {
 
 对字的每个字节进行翻转的示意图如下：
 
-![Byte-Swap](./images/byte_stream_and_bit_stream-byte_swap.svg)
+![Byte-Swap](./ByteStreamAndBitStream/byte_swap.svg)
 
 对图中连线的字节进行位置调换。Rust 有对整型值提供了 `swap_bytes` 方法。如果希望自己实现，下面的实现可以高效地地完成这项工作：
 
@@ -299,7 +299,7 @@ pub struct OutputBitStream {
 `bit_head` 表示比特的数据头位置，不再是之前的字节偏移。
 在字节流一节中写入的数据 `true`、`6E8` 和 `127`，如果使用比特流实现，它的排列是：
 
-![Bit-Swap](./images/byte_stream_and_bit_stream-bit_stream.svg)
+![Bit-Swap](./ByteStreamAndBitStream/bit_stream.svg)
 
 与字节流不同的是，例如对于只占一比特的布尔值来说，只需要写入比特位数据，这使得一个字节内如果有剩余的比特位没有被使用，将会被写入下一份数据。
 
@@ -314,7 +314,7 @@ pub struct OutputBitStream {
 `write_byte` 把小于等于 8 比特的数据写入缓冲区，并可以正确处理写入的数据跨缓冲区中的两个字节的情况。例如当前 `bit_head` 是 5，而即将写入新的 5 个比特，如图所示：
 
 
-![Byte-Swap](./images/byte_stream_and_bit_stream-split_bits.svg)
+![Byte-Swap](./ByteStreamAndBitStream/split_bits.svg)
 
 
 ```rust
@@ -345,7 +345,7 @@ fn write_byte(&mut self, data: u8, bit_count: usize) {
 
 写入数据时，需要知道当前流的字节偏移，以及位偏移量（代码中的 `byte_offset` 和 `bit_offset`），如下图的 `bit_head` 处于 `10` 的位置。
 
-![Bit-Offset](./images/byte_stream_and_bit_stream-bit_offset.svg)
+![Bit-Offset](./ByteStreamAndBitStream/bit_offset.svg)
 
 
 > 后面的代码使用的大端序，因此上面这张图使用高位编址。
@@ -419,7 +419,7 @@ if bits_free_this_byte < bit_count {
 
 如果缓冲区的一个字节内有多段数据，写入时进行了数据组合，所以在读取数据时需要进行拆分。例如 10 比特数据 `10101_10001`，`bit_head` 位于索引 5，想要读取出第二段 5 个比特 `10101`，如图所示：
 
-![Byte-Swap](./images/byte_stream_and_bit_stream-split_bits.svg)
+![Byte-Swap](./ByteStreamAndBitStream/split_bits.svg)
 
 这段数据是分布在两个字节内的，所以需要分别在两个字节中读取出 `10` 和 `101`，然后组合成 `10101`。
 
