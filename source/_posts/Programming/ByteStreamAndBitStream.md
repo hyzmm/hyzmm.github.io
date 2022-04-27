@@ -559,54 +559,66 @@ pub fn read_i8(&mut self) -> i8 { self.read() }
 
 ## 字节序
 
-比特流也存在前面介绍的字节序问题。在之前实现字节流时，我们支持了大端序和小端序，不过使用者其实不希望关注字节序，想要隐藏这个细节，可以让比特流的读写使用同一种字节序，比如我们使用大端序。
+比特流也存在前面介绍的字节序问题。之前实现字节流时，我们通过判断平台字节序和目标字节序是否一致，如果不一致则交互字节。在 Rust 中，这能够更简单点，Rust 对整型类型提供了 `to_le`、`to_be` 和 `to_ne` 接口，分别是转成小端、转成大端和转成本地字节序，这里我们会用到前面两个。
 
-写入多字节整型值时，这次直接调用了 Rust Integer 类型的内置方法 `to_be`（**To Big Endianness**），将整型值转换为大端序。
+为比特流添加 `endianness` 属性，表示流的字节序。为简化代码，多字节数据的读写被封装为宏，写入将调用 `write_endianness`，读取将调用 `read_endianness`。
+
+修改以下接口的实现：
 
 ```rust
-pub fn write_u16(&mut self, value: u16) { self.write(&value.to_be()) }
-pub fn write_i16(&mut self, value: i16) { self.write(&value.to_be()) }
+// OutputBitStream
+pub fn write_u16(&mut self, value: u16) { write_endianness!(self, value) }
+pub fn write_i16(&mut self, value: i16) { write_endianness!(self, value) }
 
-pub fn write_u32(&mut self, value: u32) { self.write(&value.to_be()) }
-pub fn write_i32(&mut self, value: i32) { self.write(&value.to_be()) }
+pub fn write_u32(&mut self, value: u32) { write_endianness!(self, value) }
+pub fn write_i32(&mut self, value: i32) { write_endianness!(self, value) }
 
-pub fn write_u64(&mut self, value: u64) { self.write(&value.to_be()) }
-pub fn write_i64(&mut self, value: i64) { self.write(&value.to_be()) }
+pub fn write_u64(&mut self, value: u64) { write_endianness!(self, value) }
+pub fn write_i64(&mut self, value: i64) { write_endianness!(self, value) }
 
-pub fn write_f32(&mut self, value: f32) { self.write_u32(unsafe { transmute(value) }) }
+pub fn write_f32(&mut self, value: f32) {
+    self.write_u32(unsafe { transmute(value) })
+}
+
+// InputBitStream
+pub fn read_u16(&mut self) -> u16 { read_endianness!(self, u16) }
+pub fn read_i16(&mut self) -> i16 { read_endianness!(self, i16) }
+
+pub fn read_u32(&mut self) -> u32 { read_endianness!(self, u32) }
+pub fn read_i32(&mut self) -> i32 { read_endianness!(self, i32) }
+
+pub fn read_u64(&mut self) -> u64 { read_endianness!(self, u64) }
+pub fn read_i64(&mut self) -> i64 { read_endianness!(self, i64) }
+
+pub fn read_f32(&mut self) -> f32 {
+    unsafe { transmute(self.read_u32()) }
+}
 ```
 
-整型值直接调用 `write` 方法。浮点数由于无法进行位运算，需要将它的内存直接表示为整型值，然后调用对应的整型值写入接口。
-
-读多字节整型值也是调用 Rust Integer 的 `from_be_bytes` 方法，从大端序字节中读取整型值。为了减少重复劳动，这里使用了 Rust 宏，这样读取的代码也只剩一行调用：
+整型值直接调用宏方法。浮点数由于无法进行位运算，需要将它的内存数据表示为整型值进行读写。	`write_endianness` 宏和 `read_endianness` 宏分别在读写时处理了字节序：
 
 ```rust
-pub fn read_u16(&mut self) -> u16 { read_be!(self, u16) }
-pub fn read_i16(&mut self) -> i16 { read_be!(self, i16) }
-
-pub fn read_u32(&mut self) -> u32 { read_be!(self, u32) }
-pub fn read_i32(&mut self) -> i32 { read_be!(self, i32) }
-
-pub fn read_u64(&mut self) -> u64 { read_be!(self, u64) }
-pub fn read_i64(&mut self) -> i64 { read_be!(self, i64) }
-
-pub fn read_f32(&mut self) -> f32 { unsafe { transmute(self.read_u32()) } }
-```
-
-与写入浮点数一样，由于浮点数不支持位运算，需读出与其相同字节数的整型值，再将内存表示为浮点数。
-
-`read_be!` 宏先是读取 n 个字节，然后通过 `from_be_bytes` 转换为整型值：
-
-```rust
-macro_rules! read_be {
-    ( $self: ident, $t:ty ) => {
-        {
-            const SIZE: usize = size_of::<$t>();
-            let bytes = $self.read_bytes(SIZE);
-            let ptr = bytes.as_ptr() as *const [u8; SIZE];
-            <$t>::from_be_bytes(unsafe { ptr.read() })
+macro_rules! write_endianness {
+    ( $self: ident, $value: expr) => {{
+        if $self.endianness == Endianness::BigEndian {
+            $self.write(&$value.to_be())
+        } else {
+            $self.write(&$value.to_le())
         }
-    };
+    }};
+}
+
+macro_rules! read_endianness {
+    ( $self: ident, $t:ty ) => {{
+        const SIZE: usize = size_of::<$t>();
+        let bytes = $self.read_bytes(SIZE);
+        let ptr = bytes.as_ptr() as *const [u8; SIZE];
+        if $self.endianness == Endianness::BigEndian {
+            <$t>::from_be_bytes(unsafe { ptr.read() })
+        } else {
+            <$t>::from_le_bytes(unsafe { ptr.read() })
+        }
+    }};
 }
 ```
 
