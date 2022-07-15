@@ -6,7 +6,7 @@ toc: true
 mathjax: true
 categories:
   -  数学
-cover: https://randomwordgenerator.com/img/picture-generator/57e8d1404f5bab14f1dc8460962e33791c3ad6e04e507441722978d69f48c6_640.jpg
+cover: /images/cover/black_hole_8-wallpaper-960x540.jpg
 ---
 
 渲染引擎在进行最终的画面绘制时，都需要确定一个子节点应该在屏幕上的什么位置。或者开发者有时还需要知道父节点的一个节点在子空间的什么位置。这些场景需要用到坐标空间的转换，在渲染引擎中，这些空间转换是通过矩阵完成的。例如常见的 `toLocal` 和 `toGlobal` 接口所做事情。

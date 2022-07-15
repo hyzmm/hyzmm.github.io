@@ -8,6 +8,7 @@ toc: true
 categories:
   - 编程
   - 游戏
+cover: /images/cover/ice_wall_nebula-wallpaper-960x600.jpg
 ---
 
 在游戏中，游戏对象要不要与另一个对象产生交互，例如发生碰撞，取决于对象所在 Layer，开发者会决定 Layer 与 Layer 之间是否需要进行碰撞。一个更具体的案例是：敌人会与玩家发生碰撞检测，而敌人之前的相互碰撞会忽略掉。

@@ -7,7 +7,7 @@ tag:
 toc: true
 categories:
   - 编程
-cover: /images/cover/byte_steram_and_bit_stream.jpg
+cover: /images/cover/beautiful_moon_2-wallpaper-960x600.jpg
 ---
 
 在前后端的数据交换中，常见的格式有 XML、JSON、GraphQL 和 Protocol Buffers 等，现如今可能更常见到 JSON 格式。大部分情况下 JSON 都是很适用的数据格式，但有些特殊场景，可能希望追求更高的编解码效率和更快的传输速度，放弃那种低效的基于 UTF-8 字符串的编解码，例如低延时游戏场景，又或者是大数据量的 IM 消息，更好的方案是使用内存布局更为紧凑的数据流。
