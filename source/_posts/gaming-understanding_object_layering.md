@@ -26,7 +26,7 @@ cover: /images/cover/ice_wall_nebula-wallpaper-960x600.jpg
 
 例如 Unity 的分层碰撞矩阵，下面展示了 3 张不同的设置，图中 5 个层是默认创建的。在下列例子中，我们只关注 Default 层与其他层的关系。
 
-![Unity 中的分层碰撞矩阵](./UnderstandingObjectLayering/Unity-LayerCollisionMatrix.jpg?w=900)
+![Unity 中的分层碰撞矩阵](/post/gaming-understanding_object_layering/unity-layer_collision_matrix.jpg?w=900)
 
 图 1 的 Default 行所有复选框都是选中状态，意味着 Default 层与其他 4 层，包括它自身都会发生碰撞，那么它的定义就是：
 
